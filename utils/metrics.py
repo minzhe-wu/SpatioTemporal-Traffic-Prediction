@@ -1,4 +1,4 @@
-# utils/metrics.py
+# utils
 import torch
 import numpy as np
 
@@ -26,12 +26,8 @@ def masked_mae(preds, labels, null_val=float('nan')):
     return torch.mean(loss)
 
 def metric(pred, real, null_val=0.0):
-    """
-    Compute MAE, MAPE, RMSE between prediction and real tensors.
-    Both pred and real should be in original scale (not normalized).
-    """
     mae = masked_mae(pred, real, null_val).item()
-    mape = masked_mae(pred, real, null_val=np.nan).item()  # note: in Graph WaveNet, masked_mape used labels in denominator
+    mape = masked_mae(pred, real, null_val=np.nan).item()  
     rmse = masked_rmse(pred, real, null_val).item()
     return mae, mape, rmse
 
