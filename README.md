@@ -18,7 +18,7 @@ You can install the necessary packages via:
 ```bash
 pip install torch numpy pandas h5py
 
-Data Preparation
+## Data Preparation
 Step 1: Download METR-LA dataset
 
 You will need the following data file manually placed in the correct folder:
@@ -39,7 +39,7 @@ data/
     └── sensor_graph/
         └── adj_mx.pkl
 
-Train Commands
+## Train Commands
 
 To train the model on GPU, run the following command:
 
@@ -47,4 +47,4 @@ python train.py --device cuda:0 \
   --data data/METR-LA \
   --adjdata data/METR-LA/sensor_graph/adj_mx.pkl \
   --gcn_bool --addaptadj --randomadj \
-  --epochs 50
+
